@@ -7,6 +7,6 @@ echo "Applying patches"
 if [[ -d "$DIR" ]]; then
     for file in "$DIR"/*.patch
     do
-        git apply --ignore-space-change --ignore-whitespace --whitespace=nowarn "${file}"
+        git apply --ignore-space-change --ignore-whitespace --whitespace=nowarn --verbose "${file}"
     done
 fi
