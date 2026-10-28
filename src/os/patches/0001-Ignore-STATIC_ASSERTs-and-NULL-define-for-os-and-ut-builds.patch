@@ -33,9 +33,9 @@ index 2da08b0c78..072eefdb94 100644
  STATIC_ASSERT (sizeof (INT8)    == 1, "sizeof (INT8) does not meet UEFI Specification Data Type requirements");
  STATIC_ASSERT (sizeof (UINT8)   == 1, "sizeof (UINT8) does not meet UEFI Specification Data Type requirements");
 @@ -837,6 +845,8 @@ STATIC_ASSERT (sizeof (CHAR8)   == 1, "sizeof (CHAR8) does not meet UEFI Specifi
-STATIC_ASSERT (ALIGNOF (INTN)    == sizeof (INTN), "Alignment of INTN does not meet UEFI Specification Data Type requirements");
-STATIC_ASSERT (ALIGNOF (UINTN)   == sizeof (UINTN), "Alignment of UINTN does not meet UEFI Specification Data Type requirements");
-STATIC_ASSERT (ALIGNOF (VOID *)  == sizeof (VOID *), "Alignment of VOID * does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (ALIGNOF (INTN)    == sizeof (INTN), "Alignment of INTN does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (ALIGNOF (UINTN)   == sizeof (UINTN), "Alignment of UINTN does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (ALIGNOF (VOID *)  == sizeof (VOID *), "Alignment of VOID * does not meet UEFI Specification Data Type requirements");
 +#endif
 +#endif
  
@@ -47,13 +47,13 @@ STATIC_ASSERT (ALIGNOF (VOID *)  == sizeof (VOID *), "Alignment of VOID * does n
  
 +#ifndef OS_BUILD
 +#ifndef UNIT_TEST_UEFI_BUILD
-STATIC_ASSERT (sizeof (__VERIFY_UINT8_ENUM_SIZE) == 4, "Size of enum does not meet UEFI Specification Data Type requirements");
-STATIC_ASSERT (sizeof (__VERIFY_UINT16_ENUM_SIZE) == 4, "Size of enum does not meet UEFI Specification Data Type requirements");
-STATIC_ASSERT (sizeof (__VERIFY_INT32_ENUM_SIZE) == 4, "Size of enum does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (sizeof (__VERIFY_UINT8_ENUM_SIZE) == 4, "Size of enum does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (sizeof (__VERIFY_UINT16_ENUM_SIZE) == 4, "Size of enum does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (sizeof (__VERIFY_INT32_ENUM_SIZE) == 4, "Size of enum does not meet UEFI Specification Data Type requirements");
 
-STATIC_ASSERT (ALIGNOF (INTN)    == sizeof (INTN), "Alignment of INTN does not meet UEFI Specification Data Type requirements");
-STATIC_ASSERT (ALIGNOF (UINTN)   == sizeof (UINTN), "Alignment of UINTN does not meet UEFI Specification Data Type requirements");
-STATIC_ASSERT (ALIGNOF (VOID *)  == sizeof (VOID *), "Alignment of VOID * does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (ALIGNOF (INTN)    == sizeof (INTN), "Alignment of INTN does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (ALIGNOF (UINTN)   == sizeof (UINTN), "Alignment of UINTN does not meet UEFI Specification Data Type requirements");
+ STATIC_ASSERT (ALIGNOF (VOID *)  == sizeof (VOID *), "Alignment of VOID * does not meet UEFI Specification Data Type requirements");
 +#endif
 +#endif
  
