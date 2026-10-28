@@ -101,55 +101,14 @@ It can be found here https://github.com/pmem/ndctl if not available as a package
 
 `./updateedk.sh`
 
-3. Build the ipmctl rpms specifying the version number to use
+3. Patch Files
+`./patch_OS.sh`  
+   
+4. Run cmake 
+`cmake -DCMAKE_INSTALL_DATAROOTDIR=share -DCMAKE_VERSION=2.8.12 ./`
 
-`./rpmbuild.sh 03.00.00.1234`
+5. Run make
+`make -j all` 
 
-### building latest (03.00.00.xxxx) on Windows
-
-Install Visual Studio 2017 (or newer). Be sure to install optional component:
-* Workloads -> Desktop Development with C++
-* Individual Components -> Compilers, build tools, and runtimes -> Visual C++ tools for CMake
-
-clone the ipmctl project
-
-Clone the edk2 repository and copy the directories BaseTools, MdeModulePkg, MdePkg and ShellPkg into the clone of the ipmctl project
-
-Open CMakeLists.txt as a CMake project in Visual Studio. See: https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio
-
-### Specific Instructions Reported as Working for 02.00.00.xxxx versions on SUSE for build in home directory
-
-Replace homedir with the actual account
-
-> git clone https://github.com/intel/ipmctl.git
->
-> zypper in libndctl-devel ruby2.5-rubygem-asciidoctor
->
-> cd ipmctl
->
-> mkdir output
->
-> cd output
->
-> cmake -DRELEASE=ON -DSAFECLIB_SRC_DOWNLOAD_AND_STATIC_LINK=ON -DCMAKE_INSTALL_PREFIX=/home/homedir/ipmctl/ ..
->
-> make all
-### Specific Instructions Reported as Working for 02.00.00.xxxx versions on RHEL7.6, CentOS7.6 and Fedora 30.
-
-Ipmctl has dependency on libsafec-devel (for 1.x builds only), libndctl-devel and rubygem-asciidoctor
-*	copr/jhli repo has libipmctl and its dependency, libsafec-devel.
-    * cd /etc/yum.repos.d/
->       wget https://copr.fedorainfracloud.org/coprs/jhli/ipmctl/repo/epel-7/jhli-ipmctl-epel-7.repo
->       wget https://copr.fedorainfracloud.org/coprs/jhli/safeclib/repo/epel-7/jhli-safeclib-epel-7.repo
-> 
->       * This should bring down both libipmctl and its dependency, libsafec-devel and
-    
-*	epel repos has rubygem-asciidoctor
-    *	get the epel repos
->      yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-*	Enable extra packages in RHEL for ndctl-devel or any other dependencies
-    *	EPEL packages may depend on packages from these repositories:
->     # subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"  --enable "rhel-ha-for-rhel-*-server-rpms"
-*	Install the prerequisite packages
->	sudo yum install ndctl ndctl-libs ndctl-devel libsafec rubygem-asciidoctor
-*	Either Follow ipmctl make, rpmbuild instructions, or install the ipmctl package
+6. Execute
+`./output/debug/ipmctl`
