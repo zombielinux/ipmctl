@@ -2,7 +2,11 @@
 Intel will not provide or guarantee development of or support for this project, including but not limited to, maintenance, bug fixes, new releases or updates.  
 Patches to this project are no longer accepted by Intel.  
  If you have an ongoing need to use this project, are interested in independently developing it, or would like to maintain patches for the community, please create your own fork of the project.  
-  
+
+# This is my attempt at making this utility buildable again for use on Debian Trixie. 
+ipmctl was removed from the Debian repos due to [CVE-2024-36275](https://security-tracker.debian.org/tracker/CVE-2024-36275) coupled with Intel no longer maintaining the project. 
+Since there are a number of 2nd Gen Xeon Scalable (Skylake/Cascade Lake) servers in service, and given an issue with Supermicro X11DPU motherboards being unable to delete NVDIMM goals, this utility remains the only way to accomplish that. 
+
 # ipmctl
 
 ipmctl is a utility for configuring and managing Intel&#174; Optane&#8482; Persistent Memory modules (PMem).
